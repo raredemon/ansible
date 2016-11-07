@@ -1,0 +1,27 @@
+---
+# tasks file for lldpd
+
+- name: install lldpd
+  apt:
+    name: lldpd
+    state: latest
+  tags: [configuration, lldpd, lldpd-install]
+
+- name: update configuration default file
+  template:
+    src: lldpd.j2
+    dest: /etc/default/lldpd
+    owner: root
+    group: root
+    mode: 0644
+  tags: [configuration, lldpd, lldpd-configuration]
+
+- name: update configuration file
+  template:
+    src: lldpd.conf.j2
+    dest: /etc/lldpd.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart lldpd
+  tags: [configuration, lldpd, lldpd-configuration]
