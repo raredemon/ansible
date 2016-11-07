@@ -1,0 +1,10 @@
+# tasks file for alias
+
+- name: installing aliases for root
+  template:
+    src: bash_aliases.j2
+    dest: /root/.bash_aliases
+    owner: root
+    group: root
+    mode: 0644
+  tags: [alias, install]
