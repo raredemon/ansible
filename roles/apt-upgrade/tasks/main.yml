@@ -1,0 +1,8 @@
+# ansible role for debian-based systems apt-upgrade
+
+- name: Update apt cache
+  apt: update_cache=yes
+
+- name: Apt upgrade
+  apt: upgrade=yes
+  
