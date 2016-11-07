@@ -1,0 +1,6 @@
+---
+# handlers file for lldpd
+- name: restart lldpd
+  service:
+    name: lldpd
+    state: restarted
